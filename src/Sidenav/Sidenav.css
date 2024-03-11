@@ -1,0 +1,66 @@
+.box{
+   width: 100%;
+   height: 900px;
+   box-shadow: 0 3px 5px -1px #0003,0 6px 10px #00000024,0 1px 18px #0000001f;
+   
+}
+.name{
+    margin-top: 0;
+    font-size: 20px;
+    height: 100px;
+    background-color: aliceblue;
+    box-shadow: 0 3px 5px -1px #0003,0 6px 10px #00000024,0 1px 18px #0000001f;
+    border-left: 5px;
+    border-color: aqua;
+    
+   
+}
+.ravi{
+  padding-left: 70px;
+  padding-top: 30px;
+}
+.borderbox{
+    height: 50px;
+    border: 2px;
+    border-color: black;
+   display: flex;
+    padding: 20px;
+}
+.details{
+    display: flex;
+    padding-left: 20px;
+}
+.btn{
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    margin-left: 5px;
+}
+.btnname{
+    padding-top: 9px;
+    font-size: 12px;
+    padding-left: 5px;
+}
+.btnspl{
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    margin-left: 5px;
+    background: linear-gradient(to right, purple 50%, green 50%);
+}
+.section{
+    display: flex;
+    margin-top: 10px;
+    height: 25px;
+    background-color: antiquewhite;
+}
+.btnq
+{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+}

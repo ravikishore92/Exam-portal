@@ -8,8 +8,6 @@ export  default function Sidenav({questionData,getNumber,updateVisited,data})
     updateVisited(subjectid,questionid);
    }
    
-
-  
     return (
         <>
         <div className="box">

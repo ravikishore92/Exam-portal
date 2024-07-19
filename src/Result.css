@@ -1,0 +1,149 @@
+.box1
+{
+    display: flex;
+    width: 900px;
+    height: 290px;
+   background-color: rgba(238, 237, 237, 0.971);
+   margin-left: 200px;
+   margin-top: 50px;
+   
+}
+.try{
+    font-weight: 500;
+    font-size: 1.667rem;
+    line-height: 2rem;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+.red{
+    font-size: 1.333rem;
+    font-weight: 500;
+    line-height: 1.667rem;
+    color: red;
+    margin-left: 30px;
+}
+.flex1
+{
+    margin-top: 80px;
+    margin-left: 40px;
+    display: flex;
+    gap: 120px;
+}
+.flex2
+{
+    
+    margin-left: 40px;
+    display: flex;
+    gap: 90px;
+}
+.score{
+    font-size: 1.167rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+}
+.scorevalue{
+    font-size: 1.233rem;
+    font-weight: 600;
+    line-height: 1.667rem;
+}
+.boxes{
+    display: flex;
+    margin-left: 200px;
+    margin-top: 40px;
+    gap: 20px;
+}
+.image{
+    margin-left: 350px;
+    margin-top: 20px;
+}
+.image1{
+    margin-left: 200px;
+    margin-top: 80px;
+}
+.box2
+{
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.05);
+    width: 150px;
+    height: 150px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: aliceblue;
+    border-radius:0.25rem;
+
+
+}
+
+.other
+{
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.05);
+    width: 300px;
+    height: 150px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: aliceblue;
+    border-radius:0.25rem;
+}
+.img{
+    margin-left: 55px;
+    margin-top: 20px;
+}
+.currect
+{
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.333rem;
+    color: rgb(80, 177, 103);
+    margin-left: 43px;
+    margin-top: 5px;
+}
+.wrong
+{
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.333rem;
+    color: rgb(233, 54, 34);
+    margin-left: 45px;
+    margin-top: 5px;
+}
+.skip
+{
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.333rem;
+    color: rgb(102, 102, 102);
+    margin-left: 40px;
+    margin-top: 5px;
+}
+.num
+{
+    font-weight: 700;
+    font-size: 22px;
+    margin-left: 65px;
+    margin-top: 5px;
+}
+.qust
+{
+    margin-left: 40px;
+    margin-top:5px;
+    color: rgb(128, 128, 128);
+}
+.other1
+{
+    display: flex;
+    font-size: 1.0rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: rgb(51, 51, 51);
+    margin-top: 20px;
+    margin-left: 20px;
+    gap: 15px;
+}
+.number
+{
+    margin-left: auto;
+    margin-right: 20px;
+}
+.valueName
+{
+    margin-left: 20px;
+}

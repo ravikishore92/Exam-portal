@@ -19,17 +19,14 @@ export default function Questions({onSubjectFrom})
     
     return (
         <>
-        <div className='box4'>
-                
+        <div className='box4'> 
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                  <TabList onChange={onClickSubject} aria-label="lab API tabs example">
-                  <Tab label="Aptitude" value={0} />
-                  <Tab label="Computer Scince" value={1} />
-                  <Tab label="Coding" value={2} />
-                  </TabList>
+                    <TabList onChange = {onClickSubject} aria-label="lab API tabs example">
+                      <Tab label="Aptitude" value={0} />
+                      <Tab label="Computer Scince" value = {1} />
+                      <Tab label="Coding" value = {2} />
+                    </TabList>
                  </Box>
-            
-          
         </div>
         </>
     );

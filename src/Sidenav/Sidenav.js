@@ -29,8 +29,7 @@ export  default function Sidenav({questionData,getNumber,updateVisited,data})
                 <div className='details'>
                 <button  className='btn'style={{backgroundColor:'purple'}}>{data.markforreview}</button>
                     <div className='btnname'>MarK for Review</div>
-                    <button  className='btnspl'>0</button>
-                    <div className='btnname'>MarK for Review</div>
+                  
                 </div>
                <div className='section'>
                     <div style={{fontWeight:'500'}}>Section: </div>
@@ -40,7 +39,13 @@ export  default function Sidenav({questionData,getNumber,updateVisited,data})
                <div className='btnfor'>
                 
                 {questionData.map((ele, index) => (
-                    <button key={index} className='btnq' onClick={() => {sendData(index,ele.subjectNum,ele.questionId)}}  style={{ backgroundColor: (ele.status && ele.visited )? 'green' : ele.visited ? 'red' : '' }} >
+                    <button key={index} className='button-80' onClick={() => {sendData(index,ele.subjectNum,ele.questionId)}}  
+                    style={{ 
+                        backgroundColor: 
+                          (ele.visited && ele.markforreview) ? 'purple' : 
+                          (ele.status && ele.visited && !ele.markforreview) ? 'green' : 
+                          ele.visited ? 'red' : '' 
+                      }} >
                     {index+1}
                </button>
       ))}

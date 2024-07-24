@@ -8,18 +8,17 @@ import React, { useState, useEffect } from 'react';
 import TabPanel from '@mui/lab/TabPanel';
 import TabContext from '@mui/lab/TabContext';
 import Questionbox from './QuestionBox/Questionbox';
-import { useNavigate } from 'react-router-dom';
 import Dialogfile from './Dialogfile';
 
 function SubmitPage() {
-  const navigate = useNavigate();
+
   const totalMinutes = 100;
   const [remainingSeconds, setRemainingSeconds] = useState(totalMinutes * 60);
   const [currentQuestion,setCurrentQuestion] = useState(0);
   const [value, setValue] = useState(0);
   const [open, setOpen] = useState(false);
     const [data, setData] = useState('');
-  const [answers, setAnswers] = useState([]);
+  
   const [arr, setArr] = useState([
     [
       {
@@ -135,7 +134,7 @@ function SubmitPage() {
     },
   ]);
 
-  const [answersData, setAnswersData] = useState([]);
+  
 
 
   useEffect(() => {
@@ -188,18 +187,44 @@ function SubmitPage() {
   const saveNext = () =>{
         if(currentQuestion < arr[value].length-1){
             
-            updateVisitedStatus(value, currentQuestion);
+            updateStatus(value, currentQuestion);
             setCurrentQuestion(currentQuestion+1);
         }
         else
           { if(value<arr.length-1)
             {
               setValue(value+1);
-              updateVisitedStatus(value, currentQuestion);
+              updateStatus(value, currentQuestion);
               setCurrentQuestion(0);
             }
           }
   }
+  const updateStatus = (sectionIndex, questionIndex) => {
+  
+    let temp1=arr[sectionIndex][questionIndex].markforreview;
+    setArr(prevQuestions => {
+      const updatedQuestions = [...prevQuestions];
+      updatedQuestions[sectionIndex][questionIndex] = {
+        ...updatedQuestions[sectionIndex][questionIndex],
+        markforreview:false
+        
+       
+      };
+      return updatedQuestions;
+    });
+    
+    if(temp1){
+      setStatusData((prevStatusData) => {
+        
+        const newStatusData = [...prevStatusData];
+        newStatusData[sectionIndex] = { ...newStatusData[sectionIndex], markforreview: newStatusData[sectionIndex].markforreview - 1 }; 
+        return newStatusData; 
+      
+      });
+    }
+  };
+
+
   
   const updateSelectedOption = (sectionIndex, questionIndex, newStatus) => {
     let temp=arr[sectionIndex][questionIndex].status;
@@ -224,11 +249,13 @@ function SubmitPage() {
   };
   const updateVisitedStatus = (sectionIndex, questionIndex) => {
     let temp=arr[sectionIndex][questionIndex].visited;
+  
     setArr(prevQuestions => {
       const updatedQuestions = [...prevQuestions];
       updatedQuestions[sectionIndex][questionIndex] = {
         ...updatedQuestions[sectionIndex][questionIndex],
         visited:true,
+        
        
       };
       return updatedQuestions;
@@ -241,7 +268,8 @@ function SubmitPage() {
       return newStatusData; 
     
     });
-    }
+  }
+   
   };
 
   const handleClose = () => {
@@ -291,7 +319,25 @@ function SubmitPage() {
   }
     
   
-   
+  const markOption = () =>{
+
+    setArr(prevQuestions => {
+      const updatedQuestions = [...prevQuestions];
+      updatedQuestions[value][currentQuestion] = {
+        ...updatedQuestions[value][currentQuestion],
+       markforreview: true
+       
+        
+      };
+      return updatedQuestions;
+    });
+
+    setStatusData((prevStatusData) => {
+      const newStatusData = [...prevStatusData]; 
+      newStatusData[value] = { ...newStatusData[value], markforreview: newStatusData[value].markforreview + 1}; 
+      return newStatusData; 
+    });    
+  } 
 
   return (
     <div className="App">
@@ -315,8 +361,8 @@ function SubmitPage() {
          <Sidenav questionData={arr[value]} getNumber={handleQuestionNumber} updateVisited={updateVisitedStatus} data={statusData[value]} ></Sidenav>
       </div>
       <div className="navbarContainer">
-        <Button variant="outlined" size='medium' style={{marginLeft:'15px'}} onClick={handleClearSelection}>Clear Response</Button>
-        <Button variant="outlined" size='medium' style={{marginLeft:'25px'}}>Mark for Review</Button>
+        <Button variant="outlined" size='medium' style={{marginLeft:'15px'}} onClick={handleClearSelection}disabled={!arr[value][currentQuestion].status}>Clear Response</Button>
+        <Button variant="outlined" size='medium' style={{marginLeft:'25px'}} onClick={markOption} disabled={!arr[value][currentQuestion].status || arr[value][currentQuestion].markforreview }  > Mark for Review</Button>
         <Button variant="contained" size='medium' style={{marginLeft:'550px'}} onClick={saveNext}>Save & Next</Button>
         <Button variant="outlined" size='medium' style={{marginLeft:'auto',marginRight:'20px',width:'200px',backgroundColor:'orange',color:'black'}} onClick={onSubmit}>Submit </Button>
         <Dialogfile open={open} onClose={handleClose} data={data} />

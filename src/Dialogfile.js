@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Card } from '@mui/material';
+import { Dialog, DialogActions, Button, Card } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import './Dialogfile.css';
 

@@ -21,7 +21,7 @@ export default function Questionbox({questions,selectedOption,updateVisitedStatu
   
     return (
         <>
-          <div>{questions.question}</div>
+          <div style={{fontSize:'20px'}}>{questions.question}</div>
              <FormControl>
               
               <RadioGroup
